@@ -31,17 +31,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TeleHealthForm));
             this.header = new System.Windows.Forms.Label();
             this.FullNamelbl = new System.Windows.Forms.Label();
-            this.name = new System.Windows.Forms.TextBox();
+            this.Name = new System.Windows.Forms.TextBox();
             this.Emaillbl = new System.Windows.Forms.Label();
-            this.email = new System.Windows.Forms.TextBox();
+            this.Email = new System.Windows.Forms.TextBox();
             this.addresslbl = new System.Windows.Forms.Label();
-            this.address = new System.Windows.Forms.TextBox();
+            this.Address = new System.Windows.Forms.TextBox();
             this.postalcodelbl = new System.Windows.Forms.Label();
-            this.postalcode = new System.Windows.Forms.TextBox();
-            this.datetime = new System.Windows.Forms.DateTimePicker();
+            this.Postalcode = new System.Windows.Forms.TextBox();
+            this.Datetime = new System.Windows.Forms.DateTimePicker();
             this.datelbl = new System.Windows.Forms.Label();
             this.responselbl = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.Response = new System.Windows.Forms.RichTextBox();
             this.submitbtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -64,12 +64,13 @@
             this.FullNamelbl.TabIndex = 1;
             this.FullNamelbl.Text = "Full Name: ";
             // 
-            // name
+            // Name
             // 
-            this.name.Location = new System.Drawing.Point(178, 49);
-            this.name.Name = "name";
-            this.name.Size = new System.Drawing.Size(187, 20);
-            this.name.TabIndex = 2;
+            this.Name.Location = new System.Drawing.Point(178, 49);
+            this.Name.Name = "Name";
+            this.Name.Size = new System.Drawing.Size(187, 20);
+            this.Name.TabIndex = 2;
+            this.Name.Validating += new System.ComponentModel.CancelEventHandler(this.Name_Validating);
             // 
             // Emaillbl
             // 
@@ -80,12 +81,13 @@
             this.Emaillbl.TabIndex = 3;
             this.Emaillbl.Text = "Email: ";
             // 
-            // email
+            // Email
             // 
-            this.email.Location = new System.Drawing.Point(178, 84);
-            this.email.Name = "email";
-            this.email.Size = new System.Drawing.Size(187, 20);
-            this.email.TabIndex = 4;
+            this.Email.Location = new System.Drawing.Point(178, 84);
+            this.Email.Name = "Email";
+            this.Email.Size = new System.Drawing.Size(187, 20);
+            this.Email.TabIndex = 4;
+            this.Email.Validating += new System.ComponentModel.CancelEventHandler(this.Email_Validating);
             // 
             // addresslbl
             // 
@@ -96,12 +98,12 @@
             this.addresslbl.TabIndex = 5;
             this.addresslbl.Text = "Address:";
             // 
-            // address
+            // Address
             // 
-            this.address.Location = new System.Drawing.Point(178, 121);
-            this.address.Name = "address";
-            this.address.Size = new System.Drawing.Size(187, 20);
-            this.address.TabIndex = 6;
+            this.Address.Location = new System.Drawing.Point(178, 121);
+            this.Address.Name = "Address";
+            this.Address.Size = new System.Drawing.Size(187, 20);
+            this.Address.TabIndex = 6;
             // 
             // postalcodelbl
             // 
@@ -112,19 +114,19 @@
             this.postalcodelbl.TabIndex = 7;
             this.postalcodelbl.Text = "Postal Code:";
             // 
-            // postalcode
+            // Postalcode
             // 
-            this.postalcode.Location = new System.Drawing.Point(178, 160);
-            this.postalcode.Name = "postalcode";
-            this.postalcode.Size = new System.Drawing.Size(187, 20);
-            this.postalcode.TabIndex = 8;
+            this.Postalcode.Location = new System.Drawing.Point(178, 160);
+            this.Postalcode.Name = "Postalcode";
+            this.Postalcode.Size = new System.Drawing.Size(187, 20);
+            this.Postalcode.TabIndex = 8;
             // 
-            // datetime
+            // Datetime
             // 
-            this.datetime.Location = new System.Drawing.Point(178, 202);
-            this.datetime.Name = "datetime";
-            this.datetime.Size = new System.Drawing.Size(187, 20);
-            this.datetime.TabIndex = 9;
+            this.Datetime.Location = new System.Drawing.Point(178, 202);
+            this.Datetime.Name = "Datetime";
+            this.Datetime.Size = new System.Drawing.Size(187, 20);
+            this.Datetime.TabIndex = 9;
             // 
             // datelbl
             // 
@@ -144,13 +146,13 @@
             this.responselbl.TabIndex = 11;
             this.responselbl.Text = "Caller Response:";
             // 
-            // richTextBox1
+            // Response
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(178, 245);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(187, 101);
-            this.richTextBox1.TabIndex = 12;
-            this.richTextBox1.Text = "";
+            this.Response.Location = new System.Drawing.Point(178, 245);
+            this.Response.Name = "Response";
+            this.Response.Size = new System.Drawing.Size(187, 101);
+            this.Response.TabIndex = 12;
+            this.Response.Text = "";
             // 
             // submitbtn
             // 
@@ -163,28 +165,27 @@
             this.submitbtn.UseVisualStyleBackColor = true;
             this.submitbtn.Click += new System.EventHandler(this.submitbtn_Click);
             // 
-            // Form1
+            // TeleHealthForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(559, 380);
             this.Controls.Add(this.submitbtn);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.Response);
             this.Controls.Add(this.responselbl);
             this.Controls.Add(this.datelbl);
-            this.Controls.Add(this.datetime);
-            this.Controls.Add(this.postalcode);
+            this.Controls.Add(this.Datetime);
+            this.Controls.Add(this.Postalcode);
             this.Controls.Add(this.postalcodelbl);
-            this.Controls.Add(this.address);
+            this.Controls.Add(this.Address);
             this.Controls.Add(this.addresslbl);
-            this.Controls.Add(this.email);
+            this.Controls.Add(this.Email);
             this.Controls.Add(this.Emaillbl);
-            this.Controls.Add(this.name);
+            this.Controls.Add(this.Name);
             this.Controls.Add(this.FullNamelbl);
             this.Controls.Add(this.header);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.ImeMode = System.Windows.Forms.ImeMode.Disable;
-            this.Name = "Form1";
             this.Text = "Covid-19 TeleHealth App";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
@@ -196,17 +197,17 @@
 
         private System.Windows.Forms.Label header;
         private System.Windows.Forms.Label FullNamelbl;
-        private System.Windows.Forms.TextBox name;
+        private System.Windows.Forms.TextBox Name;
         private System.Windows.Forms.Label Emaillbl;
-        private System.Windows.Forms.TextBox email;
+        private System.Windows.Forms.TextBox Email;
         private System.Windows.Forms.Label addresslbl;
-        private System.Windows.Forms.TextBox address;
+        private System.Windows.Forms.TextBox Address;
         private System.Windows.Forms.Label postalcodelbl;
-        private System.Windows.Forms.TextBox postalcode;
-        private System.Windows.Forms.DateTimePicker datetime;
+        private System.Windows.Forms.TextBox Postalcode;
+        private System.Windows.Forms.DateTimePicker Datetime;
         private System.Windows.Forms.Label datelbl;
         private System.Windows.Forms.Label responselbl;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox Response;
         private System.Windows.Forms.Button submitbtn;
     }
 }
