@@ -163,7 +163,7 @@
             this.submitbtn.TabIndex = 13;
             this.submitbtn.Text = "SUBMIT";
             this.submitbtn.UseVisualStyleBackColor = true;
-            this.submitbtn.Click += new System.EventHandler(this.submitbtn_Click);
+            this.submitbtn.Click += new System.EventHandler(this.submitbtn_ClickAsync);
             // 
             // TeleHealthForm
             // 

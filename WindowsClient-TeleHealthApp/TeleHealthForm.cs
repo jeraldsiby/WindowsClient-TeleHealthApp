@@ -1,18 +1,26 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsClient_TeleHealthApp.Models;
 
 namespace WindowsClient_TeleHealthApp
 {
     public partial class TeleHealthForm : System.Windows.Forms.Form
     {
+
         public TeleHealthForm()
         {
             InitializeComponent();
@@ -23,16 +31,52 @@ namespace WindowsClient_TeleHealthApp
 
         }
 
-        private void submitbtn_Click(object sender, EventArgs e)
+        private void submitbtn_ClickAsync(object sender, EventArgs e)
         {
-            //checking if all the fields are validated
-
+            if (Name.Text == string.Empty || Email.Text == string.Empty)
+            {
+                MessageBox.Show("Name and Email are required fields.");
+            }
+            else
+            {
+                Customer customer = new Customer();
+                customer.Name = Name.Text;
+                customer.Email = Email.Text;
+                customer.Address = Address.Text;
+                customer.PostalCode = Postalcode.Text;
+                customer.Date = Datetime.Value.Date;
+                customer.Response = Response.Text;
+                var response = PostCustomer(customer);
+            }
         }
 
+        private static async Task<HttpResponseMessage> PostCustomer(Customer customer)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                string baseUrl = ConfigurationManager.AppSettings["BaseURL"].ToString();
+                client.BaseAddress = new Uri(baseUrl);
+                string requestUri = "/api/customer";
+                var json = JsonConvert.SerializeObject(customer); 
+                var data = new StringContent(json, Encoding.UTF8, "application/json");
+                HttpResponseMessage response = new HttpResponseMessage();
+                try
+                {
+                    response = await client.PostAsync(requestUri, data);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                return response;
+            }
+        }
+        
         private void Name_Validating(object sender, CancelEventArgs e)
         {
             if (Name.Text == string.Empty)
             {
+
                 MessageBox.Show("Name cannot be empty.");
             }
         }
@@ -55,5 +99,6 @@ namespace WindowsClient_TeleHealthApp
                 }
             }
         }
+        
     }
 }
