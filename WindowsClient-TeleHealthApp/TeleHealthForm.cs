@@ -66,7 +66,7 @@ namespace WindowsClient_TeleHealthApp
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show("Could not submit. " + ex.Message);
                 }
                 return response;
             }
