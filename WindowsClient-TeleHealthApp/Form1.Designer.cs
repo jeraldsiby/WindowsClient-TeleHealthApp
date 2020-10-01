@@ -1,6 +1,6 @@
 ﻿namespace WindowsClient_TeleHealthApp
 {
-    partial class TeleHealthForm
+    partial class Form1
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TeleHealthForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.header = new System.Windows.Forms.Label();
             this.FullNamelbl = new System.Windows.Forms.Label();
             this.Name = new System.Windows.Forms.TextBox();
@@ -43,6 +43,7 @@
             this.responselbl = new System.Windows.Forms.Label();
             this.Response = new System.Windows.Forms.RichTextBox();
             this.submitbtn = new System.Windows.Forms.Button();
+            this.clearbtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // header
@@ -165,11 +166,22 @@
             this.submitbtn.UseVisualStyleBackColor = true;
             this.submitbtn.Click += new System.EventHandler(this.submitbtn_ClickAsync);
             // 
+            // clearbtn
+            // 
+            this.clearbtn.Location = new System.Drawing.Point(415, 294);
+            this.clearbtn.Name = "clearbtn";
+            this.clearbtn.Size = new System.Drawing.Size(75, 23);
+            this.clearbtn.TabIndex = 14;
+            this.clearbtn.Text = "CLEAR";
+            this.clearbtn.UseVisualStyleBackColor = true;
+            this.clearbtn.Click += new System.EventHandler(this.clearbtn_Click);
+            // 
             // TeleHealthForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(559, 380);
+            this.Controls.Add(this.clearbtn);
             this.Controls.Add(this.submitbtn);
             this.Controls.Add(this.Response);
             this.Controls.Add(this.responselbl);
@@ -209,6 +221,7 @@
         private System.Windows.Forms.Label responselbl;
         private System.Windows.Forms.RichTextBox Response;
         private System.Windows.Forms.Button submitbtn;
+        private System.Windows.Forms.Button clearbtn;
     }
 }
 

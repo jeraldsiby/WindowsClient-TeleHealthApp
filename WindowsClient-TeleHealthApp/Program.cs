@@ -16,7 +16,7 @@ namespace WindowsClient_TeleHealthApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TeleHealthForm());
+            Application.Run(new Form1());
         }
     }
 }

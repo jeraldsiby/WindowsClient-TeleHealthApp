@@ -18,10 +18,10 @@ using WindowsClient_TeleHealthApp.Models;
 
 namespace WindowsClient_TeleHealthApp
 {
-    public partial class TeleHealthForm : System.Windows.Forms.Form
+    public partial class Form1 : System.Windows.Forms.Form
     {
 
-        public TeleHealthForm()
+        public Form1()
         {
             InitializeComponent();
         }
@@ -63,6 +63,7 @@ namespace WindowsClient_TeleHealthApp
                 try
                 {
                     response = await client.PostAsync(requestUri, data);
+                    MessageBox.Show("Call Response submitted successfully");
                 }
                 catch (Exception ex)
                 {
@@ -99,6 +100,17 @@ namespace WindowsClient_TeleHealthApp
                 }
             }
         }
-        
+
+        private void clearbtn_Click(object sender, EventArgs e)
+        {
+            foreach (Control c in this.Controls)
+            {
+                if (c.GetType() == typeof(TextBox))
+                {
+                    c.Text = String.Empty;
+                }
+            }
+            Response.Text = string.Empty;
+        }
     }
 }
